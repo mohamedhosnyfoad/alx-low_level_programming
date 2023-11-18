@@ -1,18 +1,12 @@
-section .data
-    msg db 'Hello, Holberton', 0xa
-    len equ $ - msg
+section		.text
+	extern	printf
+	global	main
 
-section .text
-global _start
+main:
+	mov		edi, msg
+	mov		eax, 0
+	call	printf
 
-_start:
 
-    mov rax, 1
-    mov rdi, 1
-    mov rsi, msg
-    mov rdx, len
-    syscall
-
-    mov rax, 60
-    xor rdi, rdi
-    syscall
+section		.data
+	msg db 'Hello, Holberton', 0xa, 0
